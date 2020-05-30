@@ -7,7 +7,8 @@ function [B] = analytic_emission_angle(emission_angle, unidirectional_rms_slope,
 % For more information, see Rubanenko et al. 2020, JGR.
 %
 % Inputs:
-% emission_angle:           the emission (observation) angle (scalar or vector)
+% emission_angle:           the emission (observation) angle (scalar or
+%                           vector) in radians
 % unidirectional_rms_slope: the unidirectional rms slope of the surface,
 %                           given by the bidirectional_rms_slope / sqrt(2)
 % B0:                       The infrared brightness at zero emission angle, defaults to 1 if left empty
@@ -29,9 +30,9 @@ if nargin == 2
     B0 = 1
 end
 
-if any(emission_angle < 0)
+if any(emission_angle < 0 | any(emission_angle > pi/2))
     warning('Emission angles are defined 0 < psi < pi / 2. Omitting values not in range.');
-    emission_angle(emission_angle < 0) = [];
+    emission_angle(emission_angle < 0 | emission_angle > pi/2) = [];
 end
 
 I_f = sqrt(pi/2./unidirectional_rms_slope.^2) .* exp(1./2./unidirectional_rms_slope.^2) ...
@@ -50,4 +51,7 @@ analytic_2_f = @(emission_angle) -(1+cot(emission_angle).^2) .* tan(emission_ang
 Btilde_f = @(emission_angle) B0 ./ 2./pi./I_f./unidirectional_rms_slope.^2 .* analytic_2_f(emission_angle)./(1+lambda_smith_f(emission_angle));
 
 B = B0 - (B0 - Bpi2_f)./Bpi2_f .* Btilde_f(emission_angle);
-B(emission_angle == 0) = B0;
+
+if any(B == 0)
+    B(emission_angle == 0) = B0;
+end
