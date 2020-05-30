@@ -16,7 +16,7 @@ function [B] = analytic_emission_angle(emission_angle, unidirectional_rms_slope,
 % Outputs:
 % B:                        The infrared brightness at some observation angle.
 %
-% Written by Lior Rubanenko, 2019, UCLA
+% Written by Lior Rubanenko and Norbert Schorghofer, 2019, UCLA
 %
 %%%
 % Example for a surface with bidirectional rms slope = 75 degrees: 
