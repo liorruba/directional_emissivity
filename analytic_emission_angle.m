@@ -52,6 +52,6 @@ Btilde_f = @(emission_angle) B0 ./ 2./pi./I_f./unidirectional_rms_slope.^2 .* an
 
 B = B0 - (B0 - Bpi2_f)./Bpi2_f .* Btilde_f(emission_angle);
 
-if any(B == 0)
+if any(emission_angle == 0)
     B(emission_angle == 0) = B0;
 end
