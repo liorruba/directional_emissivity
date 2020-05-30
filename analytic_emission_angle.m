@@ -29,6 +29,11 @@ if nargin == 2
     B0 = 1
 end
 
+if any(emission_angle < 0)
+    warning('Emission angles are defined 0 < psi < pi / 2. Omitting values not in range.');
+    emission_angle(emission_angle < 0) = [];
+end
+
 I_f = sqrt(pi/2./unidirectional_rms_slope.^2) .* exp(1./2./unidirectional_rms_slope.^2) ...
     .* erfc(1./sqrt(2*unidirectional_rms_slope.^2));
 
@@ -45,3 +50,4 @@ analytic_2_f = @(emission_angle) -(1+cot(emission_angle).^2) .* tan(emission_ang
 Btilde_f = @(emission_angle) B0 ./ 2./pi./I_f./unidirectional_rms_slope.^2 .* analytic_2_f(emission_angle)./(1+lambda_smith_f(emission_angle));
 
 B = B0 - (B0 - Bpi2_f)./Bpi2_f .* Btilde_f(emission_angle);
+B(emission_angle == 0) = B0;
