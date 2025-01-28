@@ -9,6 +9,10 @@ Examples:
 To use the model using the parameters used by Smith 1967, set:
 
 ```matlab
+solar_zenith_angles = [0 35 70];
+observation_angle = linspace(-89.9, 89.9, 25);
+observation_azimuths = [0 30 60];
+
 slope_distribution = 'gaussian';
 unid_rms_slope_angle = [55];
 solar_constant = 1370;
@@ -17,5 +21,6 @@ emissivity = 1;
 plot_spectrum = 0;
 scattering_model = 'none';
 ```
+This will compute the radiance of a rough gaussian surface for $z=0\degree$ (the configuation appearing in Smith 1967, Figure 5), as well as for two other solar zenith angles, $z=30\degree$ and $z=60\degree$, and three observation azimuths $a_o=0\degree, 30\degree, 60\degree$.
 
 
