@@ -1,5 +1,5 @@
 ## Generalized directional emissivity model
-This model generalizes the [Smith, 1967][https://agupubs.onlinelibrary.wiley.com/doi/abs/10.1029/JZ072i016p04059] directional emissivity model to any illumination and observation angle, and adds a new idealized topographic model: a gaussian mixture surface.
+This model generalizes the [Smith (1967)](https://agupubs.onlinelibrary.wiley.com/doi/abs/10.1029/JZ072i016p04059) directional emissivity model to any illumination and observation angle, and adds a new idealized topographic model: a gaussian mixture surface.
 
 Usage:
 1. Copy all files.
@@ -40,7 +40,7 @@ emissivity = 'keihm';
 scattering_model = 'aha';
 ```
 
-This will compute the radiance of a gaussian mixture surface for the same solar zenith and observation angles, including scattering, and assuming the solar albedo of each facet (slope) varies according to measurements by [https://www.sciencedirect.com/science/article/pii/S001910351830126X?casa_token=s8jlTP7YixUAAAAA:2b9Pkdx_BqwV4kUH73BRo5GyRrIw2CBM5jwAADi4KPp8syJXJ1Drq2L2SMWXhy7ZgpmGt4Fp][Foote et al. (2020)], and a temperature-dependent emissivity as measured by [https://www.sciencedirect.com/science/article/abs/pii/0019103584901659][Keihm (1984)]. The new model (Figure 2) provides a much better fit to Diviner data. Since the model assumes radiative equilibrium, it is less accurate when shadows dominate the surface:
+This will compute the radiance of a gaussian mixture surface for the same solar zenith and observation angles, including scattering, and assuming the solar albedo of each facet (slope) varies according to measurements by [Foote et al. (2020)](https://www.sciencedirect.com/science/article/pii/S001910351830126X?casa_token=s8jlTP7YixUAAAAA:2b9Pkdx_BqwV4kUH73BRo5GyRrIw2CBM5jwAADi4KPp8syJXJ1Drq2L2SMWXhy7ZgpmGt4Fp_, and a temperature-dependent emissivity as measured by [Keihm (1984)](https://www.sciencedirect.com/science/article/abs/pii/0019103584901659). The new model (Figure 2) provides a much better fit to Diviner data. Since the model assumes radiative equilibrium, it is less accurate when shadows dominate the surface:
 
 ![fig 2](diviner_comp_gaussian_mixture.png "Figure 2")
 Figure 2
