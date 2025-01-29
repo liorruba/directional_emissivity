@@ -20,7 +20,7 @@ albedo = 0;
 emissivity = 1;
 scattering_model = 'none';
 ```
-This will compute the radiance of a rough gaussian surface for solar zenith angle $z=0\degree$ (the configuation appearing in Smith 1967, Figure 5), as well as for two other solar zenith angles, $z=30\degree$ and $z=60\degree$, and three observation azimuths $a_o=0\degree, 30\degree, 60\degree$. The result, shown in Figure 1, clearly showes the Smith model cannot accurately simulate off-nadir thermal observations by the Lunar Reconnasience Orbiter Diviner instrument.
+This will compute the radiance of a rough gaussian surface for solar zenith angle $z=0\degree$ (the configuation appearing in Smith 1967, Figure 5), as well as for two other solar zenith angles, $z=35\degree$ and $z=75\degree$, and three observation azimuths $a_o=0\degree, 30\degree, 60\degree$. The result, shown in Figure 1, clearly showes the Smith model cannot accurately simulate off-nadir thermal observations by the Lunar Reconnasience Orbiter Diviner instrument.
 
 ![fig 1](diviner_comp_gaussian.png "Figure 1")
 Figure 1
